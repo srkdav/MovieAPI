@@ -8,7 +8,6 @@ public class MovieList {
 
 	public MovieList() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public MovieList(List<Movie> list) {
@@ -23,5 +22,12 @@ public class MovieList {
 	public void setList(List<Movie> list) {
 		this.list = list;
 	}
+
+	@Override
+	public String toString() {
+		return "MovieList [list=" + list + "]";
+	}
+	
+	
 	
 }
