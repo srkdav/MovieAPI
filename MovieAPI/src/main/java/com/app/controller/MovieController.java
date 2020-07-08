@@ -1,5 +1,8 @@
 package com.app.controller;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +26,6 @@ public class MovieController {
 		System.out.println("in movies");
 		Movie newMovie = new Movie();
 		newMovie.setName("Inception");
-		newMovie.setGenre("SciFi");
 		return new ResponseEntity<Movie> (newMovie,HttpStatus.OK);
 	}
 	
@@ -38,17 +40,28 @@ public class MovieController {
 		System.out.println("in movies");
 		MovieList movieList = new MovieList();
 		List<Movie> list = new ArrayList<>();
-		list.add(new Movie("Inception","Sci Fi"));
-		list.add(new Movie("BatMan","Action"));
-		list.add(new Movie("TGBT","Com"));
+		list.add(new Movie("Inception",LocalDate.of(2017, 05, 11),LocalDate.of(2017, Month.MAY, 15)));
+		list.add(new Movie("Batman",LocalDate.of(2017, 05, 16),LocalDate.of(2017, 5, 18)));
 		movieList.setList(list);
 		return new ResponseEntity<MovieList> (movieList,HttpStatus.OK);
 	}
 	
+	
 	@PostMapping("/testSetMovieList")
 	public ResponseEntity<MovieList> setMovieList(@RequestBody MovieList movieList) {
 		List<Movie> list = movieList.getList();
-		System.out.println(list);
+		int[][] dates =new int[list.size()][2];
+		int idx=0;
+		for(Movie movie:list) {
+			LocalDate start = movie.getFrom();
+			LocalDate end = movie.getTo();
+			LocalDate reference_Date = LocalDate.of(2020, 01, 01);
+			long start_count =  ChronoUnit.DAYS.between(reference_Date, start);
+			long end_count =  ChronoUnit.DAYS.between(reference_Date, end);
+			dates[idx][0]=(int)start_count;
+			dates[idx][1]=(int)end_count;
+			idx++;
+		}
 		return new ResponseEntity<MovieList> (movieList,HttpStatus.OK);
 	}
 }
