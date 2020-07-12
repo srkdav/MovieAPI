@@ -21,32 +21,6 @@ import com.app.service.MovieService;
 @RequestMapping("/movie")
 public class MovieController {
 
-//	@GetMapping("/testGetMovie")
-//	public ResponseEntity<Movie> getMovie() {
-//		System.out.println("in movies");
-//		Movie newMovie = new Movie();
-//		newMovie.setName("Inception");
-//		return new ResponseEntity<Movie> (newMovie,HttpStatus.OK);
-//	}
-//	
-//	@PostMapping("/testSetMovie")
-//	public ResponseEntity<Movie> setMovie(@RequestBody Movie movie) {
-//		System.out.println(movie.toString());
-//		return new ResponseEntity<Movie> (movie,HttpStatus.OK);
-//	}
-//	
-//	@GetMapping("/testGetMovieList")
-//	public ResponseEntity<MovieList> getMovieList() {
-//		System.out.println("in movies");
-//		MovieList movieList = new MovieList();
-//		List<Movie> list = new ArrayList<>();
-//		list.add(new Movie("Inception",LocalDate.of(2017, 05, 11),LocalDate.of(2017, Month.MAY, 15)));
-//		list.add(new Movie("Batman",LocalDate.of(2017, 05, 16),LocalDate.of(2017, 5, 18)));
-//		movieList.setList(list);
-//		return new ResponseEntity<MovieList> (movieList,HttpStatus.OK);
-//	}
-	
-	
 	@PostMapping("/SetMovieList")
 	public ResponseEntity<MovieSelect> setMovieList(@RequestBody MovieList movieList) {
 		List<Movie> list_movies = movieList.getList();
