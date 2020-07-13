@@ -7,7 +7,7 @@
   <h3 align="center">Movie REST API</h3>
 
   <p align="center">
-   The REST API processes and returns the count and the list of movies that he must act in for maximum salary.  
+   The REST API processes and returns the count and the list of movies that the actor must act in for drawing maximum salary.  
     <br />
    </p>
 </p>
@@ -30,7 +30,7 @@ by using Helper class.
 
  
 ### Process to get the Json data in desired format
-1) Please POST the data as : "http://localhost:8080/movie/SetMovieList" , data will be received in the format as desired format (count and movie list).
+1) Please POST the data as : "http://localhost:8080/movie/SetMovieList" , data will be received in as per the desired format (count and movie list).
 
 Movie List JSON DATA : 
   ```json
